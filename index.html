@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nidal Alsayyed — Shopify Partner, Full Stack & AI Developer</title>
+  <meta name="description" content="Nidal Alsayyed — Top Rated Shopify Partner and Full Stack & AI developer. Ecommerce stores, SaaS platforms and mobile apps for brands across the UK, Australia, the US, Europe and beyond." />
+  <meta name="theme-color" content="#0a0b0f" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nidal Alsayyed — Shopify Partner, Full Stack & AI Developer" />
+  <meta property="og:description" content="Ecommerce stores, SaaS platforms and mobile apps for brands in 8+ countries." />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0b0f;
+      --bg-2: #0f1116;
+      --card: #13151b;
+      --card-2: #181b22;
+      --line: rgba(255, 255, 255, 0.08);
+      --line-2: rgba(255, 255, 255, 0.14);
+      --text: #f3f1ea;
+      --muted: #9a9ca6;
+      --dim: #6b6e78;
+      --accent: #c6f36b;
+      --accent-ink: #12160a;
+      --violet: #9d8cff;
+      --radius: 18px;
+      --max: 1200px;
+      --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      --serif: "Instrument Serif", Georgia, serif;
+      --mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ::selection { background: var(--accent); color: var(--accent-ink); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .eyebrow {
+      font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--muted); display: inline-flex; align-items: center; gap: 10px;
+    }
+    .eyebrow::before { content: ""; width: 18px; height: 1px; background: var(--accent); }
+    .serif { font-family: var(--serif); font-weight: 400; font-style: italic; letter-spacing: -0.01em; }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: fixed; inset: 0 0 auto 0; z-index: 50;
+      transition: background .3s, border-color .3s, backdrop-filter .3s;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled { background: rgba(10, 11, 15, .72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-color: var(--line); }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { display: flex; align-items: center; gap: 12px; font-weight: 600; letter-spacing: -0.01em; }
+    .logo-mark {
+      width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center;
+      background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 14px; letter-spacing: -0.02em;
+    }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a { padding: 8px 14px; border-radius: 999px; color: var(--muted); font-size: 14px; transition: color .2s, background .2s; }
+    .nav-links a:hover { color: var(--text); background: rgba(255,255,255,.05); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 999px;
+      font-weight: 500; font-size: 15px; border: 1px solid var(--line-2); transition: transform .2s, background .2s, border-color .2s, color .2s;
+      cursor: pointer; background: transparent; color: var(--text); font-family: inherit;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.3); }
+    .btn-primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+    .btn-primary:hover { background: #d4fa82; border-color: #d4fa82; }
+    .btn svg { width: 16px; height: 16px; }
+    .nav .btn { padding: 9px 16px; font-size: 14px; }
+    .menu-btn { display: none; background: none; border: 1px solid var(--line-2); color: var(--text); width: 42px; height: 42px; border-radius: 12px; cursor: pointer; }
+    .mobile-menu {
+      display: none; position: fixed; inset: 72px 0 auto 0; background: rgba(10,11,15,.97); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line); padding: 12px 24px 24px; z-index: 49;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 18px; }
+
+    /* ---------- Hero ---------- */
+    .hero { position: relative; padding: 168px 0 96px; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+      opacity: .55;
+    }
+    .glow { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; opacity: .5; }
+    .glow.g1 { width: 520px; height: 520px; background: radial-gradient(circle, rgba(198,243,107,.35), transparent 65%); top: -160px; right: -120px; }
+    .glow.g2 { width: 460px; height: 460px; background: radial-gradient(circle, rgba(157,140,255,.32), transparent 65%); top: 180px; left: -200px; }
+    .hero .wrap { position: relative; }
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 10px; border-radius: 999px;
+      border: 1px solid var(--line-2); background: rgba(255,255,255,.03); font-size: 13px; color: var(--text);
+    }
+    .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(198,243,107,.18); }
+    .badge .star { color: var(--accent); }
+    .badge.violet .dot { background: var(--violet); box-shadow: 0 0 0 4px rgba(157,140,255,.18); }
+    h1 {
+      font-size: clamp(44px, 8vw, 104px); line-height: .98; letter-spacing: -0.045em; font-weight: 600; margin: 0 0 28px; max-width: 13ch;
+    }
+    h1 .serif { color: var(--accent); font-size: 1.04em; letter-spacing: -0.02em; }
+    .hero-sub { font-size: clamp(17px, 2vw, 20px); color: var(--muted); max-width: 60ch; margin: 0 0 40px; }
+    .hero-sub strong { color: var(--text); font-weight: 500; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 88px; border-top: 1px solid var(--line); }
+    .stat { padding: 28px 24px 0 0; }
+    .stat + .stat { padding-left: 24px; border-left: 1px solid var(--line); }
+    .stat-num { font-size: clamp(36px, 5vw, 56px); font-weight: 600; letter-spacing: -0.04em; line-height: 1; }
+    .stat-num sup { font-size: .45em; color: var(--accent); vertical-align: top; position: relative; top: .25em; margin-left: 2px; }
+    .stat-label { color: var(--muted); font-size: 14px; margin-top: 10px; }
+
+    /* ---------- Marquee ---------- */
+    .marquee { border-block: 1px solid var(--line); padding: 22px 0; overflow: hidden; background: var(--bg-2); }
+    .marquee-track { display: flex; gap: 56px; width: max-content; animation: scroll 60s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    .marquee-item { display: inline-flex; align-items: center; gap: 56px; white-space: nowrap; font-size: 22px; font-weight: 500; letter-spacing: -0.02em; color: var(--muted); }
+    .marquee-item::after { content: "✦"; color: var(--accent); font-size: 14px; }
+    @keyframes scroll { to { transform: translateX(-50%); } }
+
+    /* ---------- Screenshot wall ---------- */
+    .wall { position: relative; height: 560px; overflow: hidden; perspective: 1600px; margin-top: -24px; }
+    .wall::before, .wall::after { content: ""; position: absolute; left: 0; right: 0; height: 140px; z-index: 2; pointer-events: none; }
+    .wall::before { top: 0; background: linear-gradient(var(--bg), transparent); }
+    .wall::after { bottom: 0; background: linear-gradient(transparent, var(--bg)); }
+    .wall-inner {
+      position: absolute; left: 50%; top: 50%; width: 2400px; display: grid; gap: 18px;
+      transform: translate(-50%, -50%) rotateX(22deg) rotateZ(-8deg) skewX(8deg);
+    }
+    .wall-row { display: flex; gap: 18px; width: max-content; animation: scroll 90s linear infinite; }
+    .wall-row:nth-child(2) { animation-direction: reverse; animation-duration: 110s; }
+    .wall-row:nth-child(3) { animation-duration: 100s; }
+    .wall-row img {
+      width: 320px; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 10px; flex: none;
+      border: 1px solid rgba(255,255,255,.12); box-shadow: 0 20px 40px -20px rgba(0,0,0,.8); background: #1a1c22;
+    }
+
+    /* ---------- Sections ---------- */
+    section { scroll-margin-top: 80px; }
+    .section { padding: 120px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-bottom: 48px; }
+    .section-head h2 { font-size: clamp(36px, 5.2vw, 64px); line-height: 1.02; letter-spacing: -0.04em; font-weight: 600; margin: 16px 0 0; max-width: 16ch; }
+    .section-head h2 .serif { color: var(--accent); }
+    .section-head p { color: var(--muted); max-width: 42ch; margin: 0; }
+
+    /* ---------- Filters ---------- */
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+    .chip {
+      font-family: inherit; font-size: 14px; padding: 9px 16px; border-radius: 999px; cursor: pointer;
+      background: transparent; border: 1px solid var(--line-2); color: var(--muted); transition: all .2s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .chip:hover { color: var(--text); border-color: rgba(255,255,255,.3); }
+    .chip.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .chip .count { font-family: var(--mono); font-size: 11px; opacity: .6; }
+
+    /* ---------- Work grid ---------- */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; grid-auto-flow: dense; }
+    .card {
+      position: relative; display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--radius); overflow: hidden; transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .3s, background .3s;
+      min-height: 100%;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--line-2); background: var(--card-2); }
+    .card-visual {
+      position: relative; aspect-ratio: 16 / 11; overflow: hidden; border-bottom: 1px solid var(--line);
+      background: var(--c1);
+    }
+    .card-visual::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--c2) 70%, transparent) 0%, transparent 55%),
+        radial-gradient(90% 80% at 0% 100%, rgba(0,0,0,.45), transparent 60%);
+    }
+    .browser {
+      position: absolute; left: 7%; top: 9%; width: 80%; border-radius: 10px; overflow: hidden;
+      background: #fff; border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 30px 60px -24px rgba(0,0,0,.8); transition: transform .6s cubic-bezier(.2,.7,.2,1);
+    }
+    .card:hover .browser { transform: translateY(-6px) scale(1.015); }
+    .browser-bar { display: flex; align-items: center; gap: 5px; padding: 7px 10px; background: #1a1c22; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .browser-bar i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.2); }
+    .browser-bar i:nth-child(1) { background: #ff5f57; } .browser-bar i:nth-child(2) { background: #febc2e; } .browser-bar i:nth-child(3) { background: #28c840; }
+    .browser-url {
+      margin-left: 6px; flex: 1; font-family: var(--mono); font-size: 10px; color: var(--muted); background: rgba(255,255,255,.06);
+      padding: 2px 8px; border-radius: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .browser-shot { aspect-ratio: 16 / 10; overflow: hidden; background: #e9e9ea; }
+    .browser-shot img, .phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .phone {
+      position: absolute; right: 6%; bottom: -14%; width: 22%; aspect-ratio: 9 / 19.5; border-radius: 16px; overflow: hidden;
+      border: 4px solid #0c0d10; background: #fff; outline: 1px solid rgba(255,255,255,.18);
+      box-shadow: -18px 24px 48px -16px rgba(0,0,0,.85); transition: transform .6s cubic-bezier(.2,.7,.2,1);
+    }
+    .card:hover .phone { transform: translateY(-14px); }
+    .card-visual:not(:has(.phone)) .browser { left: 10%; }
+    .card.featured .phone { width: 16%; }
+    /* app-only projects: three phones */
+    .phones { position: absolute; inset: 0; display: flex; justify-content: center; align-items: flex-start; gap: 4%; padding-top: 7%; }
+    .phones .phone { position: relative; right: auto; bottom: auto; width: 24%; flex: none; box-shadow: 0 24px 48px -16px rgba(0,0,0,.8); }
+    .phones .phone:nth-child(2) { transform: translateY(-4%); }
+    .card:hover .phones .phone { transform: translateY(-8px); }
+    .card:hover .phones .phone:nth-child(2) { transform: translateY(calc(-4% - 8px)); }
+    .card.featured { grid-column: span 2; }
+    .card.featured .card-visual { aspect-ratio: auto; min-height: 300px; flex: 1; }
+    .card.featured .browser { width: 74%; left: 6%; top: 8%; }
+    .card.featured .phones .phone { width: 17%; }
+    .card-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .card-title { font-size: 19px; font-weight: 600; letter-spacing: -0.02em; margin: 0; }
+    .arrow {
+      width: 34px; height: 34px; flex: none; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center;
+      transition: background .25s, color .25s, transform .25s, border-color .25s;
+    }
+    .arrow svg { width: 14px; height: 14px; }
+    .card:hover .arrow { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); transform: rotate(-45deg); }
+    .card-desc { color: var(--muted); font-size: 14.5px; margin: 0; flex: 1; }
+    .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .tag {
+      font-family: var(--mono); font-size: 11px; letter-spacing: .04em; padding: 4px 9px; border-radius: 6px;
+      background: rgba(255,255,255,.05); color: var(--muted); border: 1px solid var(--line);
+    }
+    .tag.cat { color: var(--text); }
+    .tag.cat::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--c2); margin-right: 6px; vertical-align: 1px; }
+    .card.hide { display: none; }
+    .grid-empty { color: var(--muted); }
+
+    /* ---------- Apps ---------- */
+    .apps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .app {
+      display: flex; flex-direction: column; overflow: hidden;
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); transition: border-color .3s, background .3s;
+    }
+    .app:hover { border-color: var(--line-2); background: var(--card-2); }
+    .app-screens {
+      position: relative; height: 340px; overflow: hidden; border-bottom: 1px solid var(--line);
+      background: radial-gradient(90% 100% at 50% 0%, color-mix(in srgb, var(--c2) 45%, transparent), transparent 70%), var(--c1);
+    }
+    .app-screens img {
+      position: absolute; top: 36px; width: 30%; max-width: 168px; border-radius: 16px; border: 4px solid #0c0d10;
+      outline: 1px solid rgba(255,255,255,.18); box-shadow: 0 24px 50px -18px rgba(0,0,0,.85);
+      transition: transform .6s cubic-bezier(.2,.7,.2,1);
+    }
+    .app-screens img:nth-child(1) { left: 50%; transform: translateX(-50%); z-index: 2; top: 28px; }
+    .app-screens img:nth-child(2) { left: 50%; transform: translateX(-138%) rotate(-6deg); top: 52px; }
+    .app-screens img:nth-child(3) { left: 50%; transform: translateX(38%) rotate(6deg); top: 52px; }
+    .app:hover .app-screens img:nth-child(1) { transform: translateX(-50%) translateY(-10px); }
+    .app:hover .app-screens img:nth-child(2) { transform: translateX(-148%) rotate(-9deg); }
+    .app:hover .app-screens img:nth-child(3) { transform: translateX(48%) rotate(9deg); }
+    .app-info { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; padding: 24px 26px 26px; }
+    .app-icon {
+      width: 68px; height: 68px; border-radius: 18px; overflow: hidden; background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.12), 0 12px 26px -12px var(--c2);
+    }
+    .app-icon img { width: 100%; height: 100%; }
+    .app h3 { margin: 0 0 4px; font-size: 22px; letter-spacing: -0.02em; font-weight: 600; }
+    .app p { margin: 0 0 18px; color: var(--muted); font-size: 15px; }
+    .stores { display: flex; flex-wrap: wrap; gap: 8px; }
+    .store {
+      display: inline-flex; align-items: center; gap: 10px; padding: 9px 14px; border-radius: 12px; border: 1px solid var(--line-2);
+      background: rgba(255,255,255,.03); font-size: 13px; transition: background .2s, border-color .2s, transform .2s;
+    }
+    .store:hover { background: var(--text); color: var(--bg); border-color: var(--text); transform: translateY(-1px); }
+    .store svg { width: 18px; height: 18px; flex: none; }
+    .store small { display: block; font-size: 10px; opacity: .65; line-height: 1.1; }
+    .store b { display: block; font-weight: 600; line-height: 1.2; }
+
+    /* ---------- Services ---------- */
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .service { background: var(--bg); padding: 36px 32px 40px; transition: background .3s; }
+    .service:hover { background: var(--bg-2); }
+    .service-num { font-family: var(--mono); font-size: 12px; color: var(--dim); }
+    .service-icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; margin: 22px 0 22px; background: rgba(198,243,107,.1); color: var(--accent); }
+    .service-icon.v { background: rgba(157,140,255,.12); color: var(--violet); }
+    .service-icon svg { width: 22px; height: 22px; }
+    .service h3 { font-size: 21px; letter-spacing: -0.02em; font-weight: 600; margin: 0 0 10px; }
+    .service p { color: var(--muted); font-size: 15px; margin: 0 0 18px; }
+    .service ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+    .service li { font-size: 12px; font-family: var(--mono); padding: 4px 9px; border-radius: 6px; border: 1px solid var(--line); color: var(--muted); }
+
+    /* ---------- Partner callout ---------- */
+    .partner {
+      position: relative; overflow: hidden; border-radius: 28px; padding: 64px; border: 1px solid var(--line-2);
+      background:
+        radial-gradient(80% 120% at 100% 0%, rgba(198,243,107,.16), transparent 55%),
+        radial-gradient(60% 100% at 0% 100%, rgba(157,140,255,.14), transparent 60%),
+        var(--card);
+      display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center;
+    }
+    .partner h2 { font-size: clamp(32px, 4.4vw, 52px); line-height: 1.04; letter-spacing: -0.04em; font-weight: 600; margin: 16px 0 18px; }
+    .partner p { color: var(--muted); margin: 0 0 28px; max-width: 48ch; }
+    .partner-card {
+      background: rgba(10,11,15,.7); border: 1px solid var(--line-2); border-radius: 20px; padding: 28px; backdrop-filter: blur(8px);
+    }
+    .partner-card .row { display: flex; align-items: center; gap: 14px; }
+    .shopify-bag { width: 52px; height: 52px; border-radius: 14px; background: #95bf47; display: grid; place-items: center; }
+    .shopify-bag svg { width: 28px; height: 28px; }
+    .partner-card h4 { margin: 0; font-size: 18px; letter-spacing: -0.01em; }
+    .partner-card .sub { color: var(--muted); font-size: 13px; }
+    .stars { color: var(--accent); letter-spacing: 3px; margin: 20px 0 6px; font-size: 18px; }
+    .partner-card ul { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
+    .partner-card li { display: flex; gap: 10px; font-size: 14px; color: var(--muted); }
+    .partner-card li::before { content: "✓"; color: var(--accent); font-weight: 700; }
+
+    /* ---------- Process ---------- */
+    .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: step; }
+    .step { padding: 28px 24px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--card); }
+    .step::before { counter-increment: step; content: "0" counter(step); font-family: var(--mono); font-size: 12px; color: var(--accent); }
+    .step h3 { margin: 14px 0 8px; font-size: 18px; letter-spacing: -0.02em; font-weight: 600; }
+    .step p { margin: 0; color: var(--muted); font-size: 14.5px; }
+
+    /* ---------- Contact ---------- */
+    .contact { padding: 140px 0 120px; text-align: center; position: relative; overflow: hidden; }
+    .contact .glow.g1 { top: auto; bottom: -260px; right: 50%; transform: translateX(50%); width: 760px; height: 520px; opacity: .45; }
+    .contact h2 { font-size: clamp(44px, 8.5vw, 120px); line-height: .95; letter-spacing: -0.05em; font-weight: 600; margin: 24px auto 28px; max-width: 12ch; position: relative; }
+    .contact h2 .serif { color: var(--accent); }
+    .contact p { color: var(--muted); max-width: 52ch; margin: 0 auto 40px; font-size: 18px; position: relative; }
+    .email-box {
+      position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 8px; border-radius: 999px; border: 1px solid var(--line-2);
+      background: rgba(255,255,255,.03); max-width: 100%;
+    }
+    .email-box a { padding: 10px 18px; font-size: clamp(15px, 2.4vw, 22px); font-weight: 500; letter-spacing: -0.01em; overflow-wrap: anywhere; }
+    .email-box a:hover { color: var(--accent); }
+    .copy { flex: none; }
+    .toast {
+      position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none;
+      background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 999px; font-size: 14px; font-weight: 500; transition: all .3s; z-index: 60;
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    footer { border-top: 1px solid var(--line); padding: 32px 0; color: var(--dim); font-size: 14px; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    footer a:hover { color: var(--text); }
+
+    /* ---------- Reveal ---------- */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .marquee-track, .wall-row { animation: none; }
+      .card, .browser { transition: none; }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1024px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .services { grid-template-columns: repeat(2, 1fr); }
+      .process { grid-template-columns: repeat(2, 1fr); }
+      .partner { grid-template-columns: 1fr; padding: 48px; }
+    }
+    @media (max-width: 760px) {
+      .wrap { padding: 0 16px; }
+      .nav-links, .nav .btn { display: none; }
+      .menu-btn { display: grid; place-items: center; }
+      .hero { padding: 128px 0 64px; }
+      .stats { grid-template-columns: repeat(2, 1fr); margin-top: 56px; }
+      .stat { padding: 24px 16px 24px 0; }
+      .stat + .stat { padding-left: 16px; }
+      .stat:nth-child(3) { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+      .stat:nth-child(4) { border-top: 1px solid var(--line); }
+      .section { padding: 88px 0; }
+      .grid, .apps, .services, .process { grid-template-columns: 1fr; }
+      .app-screens { height: 300px; }
+      .app-info { padding: 22px 20px 24px; gap: 16px; }
+      .app-icon { width: 56px; height: 56px; border-radius: 15px; }
+      .card.featured { grid-column: auto; }
+      .card.featured .card-visual { aspect-ratio: 16 / 11; min-height: 0; flex: none; }
+      .card.featured .browser { width: 80%; left: 7%; top: 9%; }
+      .card.featured .phone { width: 22%; }
+      .card.featured .phones .phone { width: 24%; }
+      .wall { height: 360px; }
+      .wall-row img { width: 220px; }
+      .partner { padding: 32px 22px; border-radius: 22px; }
+      .filters { flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding: 0 16px 6px; scrollbar-width: none; }
+      .filters::-webkit-scrollbar { display: none; }
+      .chip { flex: none; }
+      .email-box { flex-direction: column; border-radius: 22px; width: 100%; }
+      .email-box .btn { width: 100%; justify-content: center; }
+      .contact { padding: 100px 0 88px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Nav ===== -->
+  <header class="nav" id="nav">
+    <div class="wrap">
+      <a href="#top" class="logo" aria-label="Nidal Alsayyed — home">
+        <span class="logo-mark">NA</span>
+        <span>Nidal Alsayyed</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#apps">Apps</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-primary" href="mailto:nidalalsayyedk@outlook.com">Hire me
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 5h14M2 13h14"/></svg>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#work">Work</a>
+    <a href="#apps">Apps</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <main id="top">
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="glow g1"></div>
+      <div class="glow g2"></div>
+      <div class="wrap">
+        <div class="badges reveal">
+          <span class="badge"><span class="dot"></span><span class="star">★</span> Top Rated Shopify Partner</span>
+          <span class="badge violet"><span class="dot"></span> Full Stack &amp; AI Development</span>
+        </div>
+        <h1 class="reveal">I build stores &amp; products that <span class="serif">actually sell.</span></h1>
+        <p class="hero-sub reveal">
+          I'm <strong>Nidal Alsayyed</strong>. I design and engineer high-converting <strong>Shopify</strong> and WooCommerce stores,
+          scalable <strong>SaaS platforms</strong> and <strong>AI-powered</strong> features and mobile apps for brands in the UK, Australia,
+          the US, Europe and beyond.
+        </p>
+        <div class="hero-ctas reveal">
+          <a class="btn btn-primary" href="#work">See selected work
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M4 9l4 4 4-4"/></svg>
+          </a>
+          <a class="btn" href="mailto:nidalalsayyedk@outlook.com">nidalalsayyedk@outlook.com</a>
+        </div>
+
+        <div class="stats reveal" id="stats">
+          <div class="stat"><div class="stat-num"><span data-count="sites">0</span><sup>+</sup></div><div class="stat-label">Websites &amp; stores shipped</div></div>
+          <div class="stat"><div class="stat-num"><span data-count="apps">0</span></div><div class="stat-label">iOS &amp; Android apps</div></div>
+          <div class="stat"><div class="stat-num"><span data-count="countries">0</span><sup>+</sup></div><div class="stat-label">Countries served</div></div>
+          <div class="stat"><div class="stat-num"><span data-count="industries">0</span></div><div class="stat-label">Industries</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Screenshot wall ===== -->
+    <div class="wall" aria-hidden="true">
+      <div class="wall-inner" id="wall"></div>
+    </div>
+
+    <!-- ===== Marquee ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee"></div>
+    </div>
+
+    <!-- ===== Work ===== -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Selected work</span>
+            <h2>Brands I've helped <span class="serif">grow online.</span></h2>
+          </div>
+          <p>Ecommerce stores, SaaS platforms and B2B catalogues across food, fashion, bridal, agriculture, finance and tech. Filter by industry.</p>
+        </div>
+        <div class="filters reveal" id="filters" role="tablist" aria-label="Filter projects by industry"></div>
+        <div class="grid" id="grid"></div>
+      </div>
+    </section>
+
+    <!-- ===== Apps ===== -->
+    <section class="section" id="apps" style="padding-top: 0;">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Mobile apps</span>
+            <h2>Shipped to the <span class="serif">App Store</span> &amp; Google Play.</h2>
+          </div>
+          <p>Native and cross-platform apps for quick-commerce, B2B food supply, live radio streaming and e-learning.</p>
+        </div>
+        <div class="apps" id="appsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===== Services ===== -->
+    <section class="section" id="services" style="background: var(--bg-2); border-block: 1px solid var(--line);">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">What I do</span>
+            <h2>From storefront to <span class="serif">AI agent.</span></h2>
+          </div>
+          <p>One partner for the whole stack: design, build, integrations, automation and launch.</p>
+        </div>
+        <div class="services reveal">
+          <div class="service">
+            <div class="service-num">01</div>
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div>
+            <h3>Shopify &amp; Shopify Plus</h3>
+            <p>Custom themes, Online Store 2.0 sections, headless storefronts, migrations and conversion-focused redesigns.</p>
+            <ul><li>Liquid</li><li>Hydrogen</li><li>Checkout Extensibility</li><li>Plus</li></ul>
+          </div>
+          <div class="service">
+            <div class="service-num">02</div>
+            <div class="service-icon v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15Z"/></svg></div>
+            <h3>AI Development</h3>
+            <p>LLM-powered shopping assistants, support chatbots, WhatsApp automation, product-content generation and RAG search.</p>
+            <ul><li>LLMs</li><li>RAG</li><li>Agents</li><li>WhatsApp API</li></ul>
+          </div>
+          <div class="service">
+            <div class="service-num">03</div>
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></div>
+            <h3>Full Stack Web Apps</h3>
+            <p>SaaS dashboards, marketplaces and internal tools with clean APIs, solid auth and infrastructure that scales.</p>
+            <ul><li>React</li><li>Next.js</li><li>Node.js</li><li>PostgreSQL</li></ul>
+          </div>
+          <div class="service">
+            <div class="service-num">04</div>
+            <div class="service-icon v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+            <h3>Custom Shopify Apps</h3>
+            <p>Private and public apps, ERP and 3PL integrations, B2B pricing, subscriptions and inventory sync.</p>
+            <ul><li>Admin API</li><li>GraphQL</li><li>Webhooks</li><li>Polaris</li></ul>
+          </div>
+          <div class="service">
+            <div class="service-num">05</div>
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+            <h3>Mobile Apps</h3>
+            <p>iOS and Android apps for commerce, streaming and learning, built cross-platform and shipped to both stores.</p>
+            <ul><li>React Native</li><li>Flutter</li><li>Swift</li><li>Kotlin</li></ul>
+          </div>
+          <div class="service">
+            <div class="service-num">06</div>
+            <div class="service-icon v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+            <h3>WooCommerce &amp; Growth</h3>
+            <p>WordPress and WooCommerce builds, Core Web Vitals tuning, technical SEO and analytics that tie to revenue.</p>
+            <ul><li>WordPress</li><li>WooCommerce</li><li>SEO</li><li>GA4</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Partner ===== -->
+    <section class="section">
+      <div class="wrap">
+        <div class="partner reveal">
+          <div>
+            <span class="eyebrow">Verified partner</span>
+            <h2>A <span class="serif" style="color:var(--accent)">Top Rated</span> Shopify Partner.</h2>
+            <p>Listed in the official Shopify Partner Directory under SilverCarts. Merchants can review my work and hire me through Shopify itself.</p>
+            <a class="btn btn-primary" href="https://www.shopify.com/partners/directory/partner/silvercarts" target="_blank" rel="noopener">
+              View Partner profile
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg>
+            </a>
+          </div>
+          <div class="partner-card">
+            <div class="row">
+              <div class="shopify-bag">
+                <svg viewBox="0 0 24 24" fill="#fff"><path d="M15.3 3.3c-.1 0-.2 0-.3.1l-.6.2C14 2.4 13.3 2 12.5 2c-1.7 0-2.6 2.1-2.9 3.2l-1.2.4c-.4.1-.4.1-.4.5L6.5 20.4l9.3 1.6V3.3h-.5ZM13.1 4l-1.4.4c.3-1 .8-2 1.6-2.3.1.4.1 1 .1 1.6-.1.1-.2.2-.3.3Zm-1.3-1.4c.1 0 .3 0 .4.1-1 .5-2 1.6-2.5 3.6l-1.2.4c.4-1.2 1.3-4.1 3.3-4.1Z"/><path d="M17 3.4c-.1 0-.4 0-.4 0V22l5.1-1.1S19.5 5.5 19.5 5.4c0-.1-.1-.2-.2-.2L17 3.4Z" opacity=".7"/></svg>
+              </div>
+              <div>
+                <h4>SilverCarts</h4>
+                <div class="sub">Shopify Partner Directory</div>
+              </div>
+            </div>
+            <div class="stars" aria-label="Top rated">★★★★★</div>
+            <div class="sub">Top Rated Shopify Partner</div>
+            <ul>
+              <li>Store setup, design &amp; theme development</li>
+              <li>Custom apps &amp; integrations</li>
+              <li>Migrations to Shopify</li>
+              <li>AI &amp; automation for commerce</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Process ===== -->
+    <section class="section" id="process" style="padding-top: 0;">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">How we'll work</span>
+            <h2>Clear steps, <span class="serif">no surprises.</span></h2>
+          </div>
+          <p>A tight feedback loop from first call to launch, with support after go-live.</p>
+        </div>
+        <div class="process reveal">
+          <div class="step"><h3>Discover</h3><p>We map goals, audience, catalogue and integrations, then agree scope, timeline and budget.</p></div>
+          <div class="step"><h3>Design</h3><p>Wireframes and high-fidelity UI built around conversion, brand and mobile-first shopping.</p></div>
+          <div class="step"><h3>Build</h3><p>Clean, fast, maintainable code with staging previews you can click through every week.</p></div>
+          <div class="step"><h3>Launch &amp; grow</h3><p>QA, migration, go-live and ongoing optimisation, automation and AI features.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="contact" id="contact">
+      <div class="glow g1"></div>
+      <div class="wrap">
+        <span class="eyebrow reveal">Contact</span>
+        <h2 class="reveal">Let's build <span class="serif">something great.</span></h2>
+        <p class="reveal">Planning a new store, a Shopify migration, a SaaS product or an AI feature? Tell me about it. I reply within 24 hours.</p>
+        <div class="email-box reveal">
+          <a href="mailto:nidalalsayyedk@outlook.com">nidalalsayyedk@outlook.com</a>
+          <button class="btn btn-primary copy" id="copyBtn" type="button">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="5" width="9" height="9" rx="2"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
+            Copy email
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year"></span> Nidal Alsayyed. Top Rated Shopify Partner · Full Stack &amp; AI Development.</span>
+      <span><a href="https://www.shopify.com/partners/directory/partner/silvercarts" target="_blank" rel="noopener">Shopify Partner Directory</a> · <a href="mailto:nidalalsayyedk@outlook.com">Email</a></span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Email copied</div>
+
+  <script>
+    // ---------- Data ----------
+    // Screenshots live in assets/shots/<slug>.webp (desktop) and <slug>-m.webp (mobile),
+    // where <slug> is the domain without "www." and with dots replaced by dashes.
+    const CATEGORIES = {
+      saas:      { label: "SaaS & Tech",            c1: "#16132b", c2: "#7c6cff" },
+      food:      { label: "Food & Wellness",        c1: "#0f2016", c2: "#3ddc84" },
+      bakery:    { label: "Bakeries & Cakes",       c1: "#2a1520", c2: "#ff7aa8" },
+      bridal:    { label: "Bridal & Ethnic Wear",   c1: "#2a2113", c2: "#f2c46d" },
+      fashion:   { label: "Fashion & Apparel",      c1: "#1d1d22", c2: "#c9c4b8" },
+      b2b:       { label: "Food Ingredients & Hospitality", c1: "#24170f", c2: "#ff9a4d" },
+      agri:      { label: "Agriculture",            c1: "#17200d", c2: "#a6d94a" },
+      services:  { label: "Finance & Legal",        c1: "#0e1a26", c2: "#5ab0ff" },
+    };
+
+    const PROJECTS = [
+      // SaaS & Tech
+      { name: "Wati", url: "https://www.wati.io/", cat: "saas", country: "Global", featured: true, desc: "AI-powered customer engagement platform: WhatsApp Business API, omnichannel inbox, chatbots and broadcast campaigns." },
+      { name: "Clipboard Health", url: "https://www.clipboardhealth.com/", cat: "saas", country: "US", desc: "Healthcare staffing marketplace covering open shifts across 6,500+ US workplaces." },
+      { name: "Skileo", url: "https://www.skileo.com/", cat: "saas", country: "Global", desc: "All-in-one workplace suite for employee management, leave tracking, recruiting, invoicing and expenses." },
+      { name: "Remote Ops Solutions", url: "https://remoteops.solutions/", cat: "saas", country: "Global", desc: "Business process outsourcing that connects companies with top remote talent worldwide." },
+
+      // Food & Wellness
+      { name: "GrubMarket", url: "https://www.grubmarket.com/", cat: "food", country: "US", featured: true, desc: "Digitally transforming the American food supply chain: B2B ecommerce, ERP software and enterprise AI." },
+      { name: "Flink", url: "https://www.goflink.com/en", cat: "food", country: "DE", app: ["flink-1", "flink-2", "flink-3"], desc: "Quick-commerce grocery delivery in minutes across Germany and the Netherlands." },
+      { name: "Bondi Meal Prep", url: "https://bondimealprep.com.au/", cat: "food", country: "AU", desc: "Healthy, chef-made meal prep with subscriptions and delivery across Sydney." },
+      { name: "Earth Bound", url: "https://earthbound.com.au", cat: "food", country: "AU", desc: "Organic, plant-based meal mixes with separate Australian and US storefronts." },
+      { name: "Le Baroudeur du Vin", url: "https://www.lebaroudeurduvin.com/en-us", cat: "food", desc: "World wine specialist: monthly tasting boxes and 1,500+ wines from 200+ producers." },
+      { name: "Redmond Life", url: "https://living.redmond.com/", cat: "food", country: "US", desc: "Real Salt, clay and Re-Lyte electrolyte products from Redmond, Utah." },
+
+      // Bakeries
+      { name: "Make My Cakes", url: "https://makemycakes.co.uk/", cat: "bakery", country: "UK", desc: "100% eggless celebration cakes, handcrafted in Harrow with same-day delivery." },
+      { name: "The Green Bakery", url: "https://thegreenbakery.com.au/", cat: "bakery", country: "AU", desc: "Vegan and gluten-free celebration cakes from North Sydney, with custom orders and delivery." },
+      { name: "Ruwi's Cakes", url: "https://ruwiscakes.com.au/", cat: "bakery", country: "AU", desc: "Melbourne cake shop with themed collections and online ordering for every occasion." },
+
+      // Bridal & ethnic
+      { name: "Peggy Bridal", url: "https://peggybridal.co.uk/", cat: "bridal", country: "UK", mobile: false, desc: "Designer off-the-peg wedding dresses. Find it, love it, take it home the same day." },
+      { name: "Dotty Bridal", url: "https://dottybridal.co.uk/", cat: "bridal", country: "UK", desc: "Bridal boutique for designer wedding dresses, with collections and appointment booking." },
+      { name: "Rivaaz", url: "https://rivaazz.com/", cat: "bridal", country: "IN", desc: "Indian boutique for bridal lehengas, gowns and contemporary women's wear." },
+      { name: "Pakiza Luxe", url: "https://pakizaluxe.com/", cat: "bridal", country: "IN", desc: "One-stop family fashion store for ethnic, formal and wedding wear." },
+
+      // Fashion
+      { name: "Todd Snyder", url: "https://www.toddsnyder.com", cat: "fashion", country: "US", featured: true, desc: "New York menswear label. Modern American sportswear, collaborations and a high-volume DTC store." },
+      { name: "Jolie Noire", url: "https://joliexnoire.com/", cat: "fashion", country: "US", desc: "Elevated women's and unisex athleisure brand with seasonal collections." },
+      { name: "ND Renegade", url: "https://www.ndrenegade.com/", cat: "fashion", desc: "Clothing and accessories that celebrate neurodiversity, plus wholesale and resources." },
+      { name: "Classy Cozy Cool", url: "https://classycozycool.com/", cat: "fashion", country: "US", desc: "Made-in-USA women's clothing boutique with seasonal drops and promotions." },
+
+      // Food ingredients & hospitality B2B
+      { name: "Oppenheimer", url: "https://www.oppenheimer.com.au/", cat: "b2b", country: "AU", desc: "Family-owned food ingredient manufacturer and food-service brand house, in business since 1870." },
+      { name: "Oppenheimer Food Equipment", url: "https://oppenheimerfe.com.au/", cat: "b2b", country: "AU", desc: "Wholesale German and Japanese knives, cookware and equipment for chefs and butchers." },
+      { name: "Prolux Ingredients", url: "https://proluxingredients.co.nz/", cat: "b2b", country: "NZ", desc: "Functional ingredients, gelato and food equipment for New Zealand food manufacturers." },
+      { name: "FEI", url: "https://fei.com.au/", cat: "b2b", country: "AU", desc: "Hospitality tableware, buffetware and banquet furniture at factory-direct prices." },
+      { name: "Home Royale", url: "https://homeroyale.com.au/", cat: "b2b", country: "AU", desc: "Premium kitchenware, Japanese and German knives, cookware and dining." },
+
+      // Agriculture
+      { name: "Bhumi Agro Industries", url: "https://bhumiagroindustries.com/", cat: "agri", country: "IN", desc: "Plant growth promoters, fertilizers and crop protection for Indian farmers, sold in Hindi and English." },
+      { name: "Agro Phos India", url: "https://www.agrophos.com/", cat: "agri", country: "IN", desc: "NSE-listed fertilizer manufacturer with investor relations and product catalogue." },
+
+      // Finance & Legal
+      { name: "Oppenheimer & Co.", url: "https://www.oppenheimer.com/", cat: "services", country: "US", desc: "Wealth management, capital markets and investment banking firm." },
+      { name: "Powers Law Group", url: "https://rubypowerslaw.com/", cat: "services", country: "US", desc: "Houston immigration and estate planning law firm with online consultation booking." },
+    ];
+
+    const APPS = [
+      { name: "Flink", slug: "flink", c1: "#3a0623", c2: "#e8197d", desc: "Groceries delivered in minutes. Quick-commerce app with live order tracking.",
+        ios: "https://apps.apple.com/us/app/flink-groceries-in-minutes/id1531321108",
+        android: "https://play.google.com/store/apps/details?id=com.pickery.app&hl=en" },
+      { name: "GrubMarket", slug: "grubmarket", c1: "#0b2a17", c2: "#22c55e", desc: "Farm-fresh food ordering and B2B supply from local producers.",
+        ios: "https://apps.apple.com/us/app/grubmarket/id961362133" },
+      { name: "Radio BeO", slug: "radiobeo", c1: "#2e1206", c2: "#f97316", desc: "Live radio streaming app for Swiss regional broadcaster Radio BeO.",
+        ios: "https://apps.apple.com/bg/app/radio-beo/id1295754702",
+        android: "https://play.google.com/store/apps/details?id=ch.androidRadiobeov2.app&hl=en" },
+      { name: "Skillio", slug: "skillio", c1: "#16133a", c2: "#8b5cf6", desc: "Learning app with courses and progress tracking on the go (Skilleos on Android).",
+        ios: "https://apps.apple.com/gb/app/skillio-app/id6755387582",
+        android: "https://play.google.com/store/apps/details?id=com.skilleos.skilleos&hl=en" },
+    ];
+
+    const COUNTRY_NAMES = { US: "United States", UK: "United Kingdom", AU: "Australia", NZ: "New Zealand", DE: "Germany", IN: "India", FR: "France", CH: "Switzerland", Global: "Global" };
+
+    // ---------- Helpers ----------
+    const $ = (s, el = document) => el.querySelector(s);
+    const domainOf = (u) => new URL(u).hostname.replace(/^www\./, "");
+    const slugOf = (u) => domainOf(u).replace(/\./g, "-");
+    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const arrowSvg = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
+
+    // ---------- Work grid ----------
+    function cardVisual(p) {
+      if (p.app) {
+        return `<div class="phones">${p.app.map((s) => `<div class="phone"><img src="assets/apps/${s}.webp" alt="${esc(p.name)} app screen" loading="lazy" decoding="async"></div>`).join("")}</div>`;
+      }
+      const s = slugOf(p.url);
+      return `
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">${esc(domainOf(p.url))}</span></div>
+          <div class="browser-shot"><img src="assets/shots/${s}.webp" alt="${esc(p.name)} website screenshot" loading="lazy" decoding="async" width="1200" height="750"></div>
+        </div>${p.mobile === false ? "" : `
+        <div class="phone"><img src="assets/shots/${s}-m.webp" alt="${esc(p.name)} mobile screenshot" loading="lazy" decoding="async" onerror="this.parentElement.remove()"></div>`}`;
+    }
+
+    function renderGrid() {
+      const grid = $("#grid");
+      grid.innerHTML = PROJECTS.map((p) => {
+        const cat = CATEGORIES[p.cat];
+        const country = p.country ? `<span class="tag" title="${esc(COUNTRY_NAMES[p.country] || p.country)}">${esc(p.country)}</span>` : "";
+        return `
+          <a class="card reveal${p.featured ? " featured" : ""}" data-cat="${p.cat}" href="${esc(p.url)}" target="_blank" rel="noopener" style="--c1:${cat.c1};--c2:${cat.c2}">
+            <div class="card-visual">${cardVisual(p)}</div>
+            <div class="card-body">
+              <div class="card-top">
+                <h3 class="card-title">${esc(p.name)}</h3>
+                <span class="arrow" aria-hidden="true">${arrowSvg}</span>
+              </div>
+              <p class="card-desc">${esc(p.desc)}</p>
+              <div class="meta"><span class="tag cat">${esc(cat.label)}</span>${country}<span class="tag">${esc(domainOf(p.url))}</span></div>
+            </div>
+          </a>`;
+      }).join("");
+    }
+
+    // ---------- Screenshot wall ----------
+    function renderWall() {
+      const shots = PROJECTS.filter((p) => !p.app).map((p) => slugOf(p.url));
+      const rows = [0, 1, 2].map((r) => shots.filter((_, i) => i % 3 === r));
+      $("#wall").innerHTML = rows.map((row) => {
+        const imgs = row.map((s) => `<img src="assets/shots/${s}.webp" alt="" loading="lazy" decoding="async">`).join("");
+        return `<div class="wall-row">${imgs}${imgs}</div>`;
+      }).join("");
+    }
+
+    function renderFilters() {
+      const counts = PROJECTS.reduce((m, p) => (m[p.cat] = (m[p.cat] || 0) + 1, m), {});
+      const chips = [`<button class="chip active" data-filter="all" role="tab" aria-selected="true">All <span class="count">${PROJECTS.length}</span></button>`]
+        .concat(Object.entries(CATEGORIES).filter(([k]) => counts[k]).map(([k, v]) =>
+          `<button class="chip" data-filter="${k}" role="tab" aria-selected="false">${esc(v.label)} <span class="count">${counts[k]}</span></button>`));
+      const el = $("#filters");
+      el.innerHTML = chips.join("");
+      el.addEventListener("click", (e) => {
+        const btn = e.target.closest(".chip");
+        if (!btn) return;
+        el.querySelectorAll(".chip").forEach((c) => { c.classList.toggle("active", c === btn); c.setAttribute("aria-selected", c === btn); });
+        const f = btn.dataset.filter;
+        document.querySelectorAll("#grid .card").forEach((card) => {
+          const show = f === "all" || card.dataset.cat === f;
+          card.classList.toggle("hide", !show);
+          if (show) card.classList.add("in");
+        });
+      });
+    }
+
+    // ---------- Apps ----------
+    const appleSvg = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1ZM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5Z"/></svg>';
+    const playSvg = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.3.3-.4.7-.4 1.2v17c0 .5.1.9.4 1.2l9.5-9.7-9.5-9.7Zm10.6 10.8 2.7 2.8-11.3 6.4 8.6-9.2Zm4-3.9 3 1.7c.9.5.9 1.8 0 2.3l-3 1.7-3-3 3-2.7ZM5.6 1.7l11.3 6.4-2.7 2.8-8.6-9.2Z"/></svg>';
+    function renderApps() {
+      $("#appsGrid").innerHTML = APPS.map((a) => `
+        <article class="app reveal" style="--c1:${a.c1};--c2:${a.c2}">
+          <div class="app-screens">
+            ${[1, 2, 3].map((i) => `<img src="assets/apps/${a.slug}-${i}.webp" alt="${esc(a.name)} app screen ${i}" loading="lazy" decoding="async">`).join("")}
+          </div>
+          <div class="app-info">
+            <div class="app-icon"><img src="assets/apps/${a.slug}-icon.webp" alt="${esc(a.name)} app icon" loading="lazy" width="68" height="68"></div>
+            <div>
+              <h3>${esc(a.name)}</h3>
+              <p>${esc(a.desc)}</p>
+              <div class="stores">
+                ${a.ios ? `<a class="store" href="${esc(a.ios)}" target="_blank" rel="noopener" aria-label="${esc(a.name)} on the App Store">${appleSvg}<span><small>Download on the</small><b>App Store</b></span></a>` : ""}
+                ${a.android ? `<a class="store" href="${esc(a.android)}" target="_blank" rel="noopener" aria-label="${esc(a.name)} on Google Play">${playSvg}<span><small>Get it on</small><b>Google Play</b></span></a>` : ""}
+              </div>
+            </div>
+          </div>
+        </article>`).join("");
+    }
+
+    // ---------- Marquee ----------
+    function renderMarquee() {
+      const names = PROJECTS.map((p) => `<span class="marquee-item">${esc(p.name)}</span>`).join("");
+      $("#marquee").innerHTML = names + names;
+    }
+
+    // ---------- Stats ----------
+    function computeStats() {
+      const countries = new Set(PROJECTS.map((p) => p.country).filter((c) => c && c !== "Global"));
+      countries.add("CH"); // Radio Beo (Switzerland)
+      return {
+        sites: PROJECTS.length,
+        apps: APPS.length,
+        countries: countries.size,
+        industries: new Set(PROJECTS.map((p) => p.cat)).size,
+      };
+    }
+    function animateStats() {
+      const stats = computeStats();
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      document.querySelectorAll("[data-count]").forEach((el) => {
+        const target = stats[el.dataset.count];
+        if (reduce) { el.textContent = target; return; }
+        const start = performance.now(), dur = 1400;
+        const tick = (t) => {
+          const k = Math.min(1, (t - start) / dur);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - k, 3)));
+          if (k < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }
+
+    // ---------- Init ----------
+    renderGrid();
+    renderFilters();
+    renderApps();
+    renderMarquee();
+    renderWall();
+    $("#year").textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("in");
+        if (e.target.id === "stats") animateStats();
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll(".reveal").forEach((el, i) => {
+      if (el.classList.contains("card") || el.classList.contains("app")) el.style.transitionDelay = `${(i % 3) * 70}ms`;
+      io.observe(el);
+    });
+
+    // Nav background on scroll
+    const nav = $("#nav");
+    const onScroll = () => nav.classList.toggle("scrolled", scrollY > 12);
+    addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    // Mobile menu
+    const menuBtn = $("#menuBtn"), mobileMenu = $("#mobileMenu");
+    menuBtn.addEventListener("click", () => {
+      const open = mobileMenu.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", open);
+    });
+    mobileMenu.addEventListener("click", (e) => {
+      if (e.target.tagName === "A") { mobileMenu.classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false"); }
+    });
+
+    // Copy email
+    const toast = $("#toast");
+    $("#copyBtn").addEventListener("click", async () => {
+      const email = "nidalalsayyedk@outlook.com";
+      try { await navigator.clipboard.writeText(email); toast.textContent = "Email copied"; }
+      catch { toast.textContent = email; }
+      toast.classList.add("show");
+      clearTimeout(toast._t);
+      toast._t = setTimeout(() => toast.classList.remove("show"), 1800);
+    });
+  </script>
+</body>
+</html>
